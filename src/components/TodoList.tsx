@@ -16,7 +16,7 @@ import {
 	TableRow,
 	TextField,
 } from "@mui/material";
-import { Block, Desc, Header, HeaderTitle, Title } from "../styled";
+import { Block, Header, HeaderTitle } from "../styled";
 import { TodoItem } from "./type";
 
 type Props = {
@@ -27,6 +27,32 @@ type Props = {
 	onChange: (fieldName: "title" | "desc", newValue: string) => void;
 	todoList: TodoItem[];
 	createValue: Record<string, string>;
+};
+
+const TitleStyle = {
+	width: "100%",
+	marginBottom: "0.5rem",
+	lineHeight: "23px",
+	fontSize: "1rem",
+	fontWeight: "bold",
+	display: "-webkit-box",
+	WebkitLineClamp: 2,
+	WebkitBoxOrient: "vertical",
+	overflow: "hidden",
+	textOverflow: "ellipsis",
+	wordWrap: "anywhere",
+	color: "inherit",
+};
+const DescStyle = {
+	width: "100%",
+	lineHeight: "23px",
+	display: "-webkit-box",
+	WebkitLineClamp: 2,
+	WebkitBoxOrient: "vertical",
+	overflow: "hidden",
+	textOverflow: "ellipsis",
+	wordWrap: "anywhere",
+	color: "inherit",
 };
 
 function TodoList(props: Props) {
@@ -147,8 +173,8 @@ function TodoList(props: Props) {
 																	color: option.isChecked ? "gray" : "black",
 																}}
 															>
-																<Title>{option.title}</Title>
-																<Desc>{option.desc}</Desc>
+																<Box sx={TitleStyle}>{option.title}</Box>
+																<Box sx={DescStyle}>{option.desc}</Box>
 															</Box>
 														)}
 													</>
